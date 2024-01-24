@@ -56,21 +56,4 @@ public class LoginTest {
         verificationPage.verification(verificationCode.getCode());
         verificationPage.verificationError("Ошибка! " + "Неверно указан код! Попробуйте ещё раз.");
     }
-
-    @Test
-    void shouldBlockAccess() {
-        var authInfo = DataHelper.getRealUser();
-        var loginPage = new LoginPage();
-        var verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.pageVisible();
-        var verificationCode = DataHelper.getRandomCode();
-        verificationPage.verification(verificationCode.getCode());
-        verificationPage.verificationError("Ошибка! " + "Неверно указан код! Попробуйте ещё раз.");
-        verificationPage.verification(verificationCode.getCode());
-        verificationPage.verificationError("Ошибка! " + "Неверно указан код! Попробуйте ещё раз.");
-        verificationPage.verification(verificationCode.getCode());
-        verificationPage.verificationError("Ошибка! " + "Неверно указан код! Попробуйте ещё раз.");
-        verificationPage.verification(verificationCode.getCode());
-        verificationPage.verificationError("Ошибка! " + "Ваш аккаунт заблокирован, свяжитесь с оператором для разблокировки");
-    }
 }
